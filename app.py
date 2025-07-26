@@ -149,7 +149,7 @@ if genre_filter != "All":
 
 #  query 
 query = st.text_input(
-    label="🔍 Enter a movie description or theme",
+    label="Enter a movie description or theme",
     placeholder=" Input your query to find your FAV MOVIE!",
     key="main_search_input"
 )
