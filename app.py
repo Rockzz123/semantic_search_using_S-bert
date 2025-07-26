@@ -90,6 +90,20 @@ st.markdown("""
             font-style: italic;
             font-weight: bold;
             text-shadow: 0 0 5px #ff4b4b;
+            div[data-baseweb="input"] input {
+    caret-color: #ff4b4b;
+}
+
+
+@keyframes glowCaret {
+    0% { box-shadow: 0 0 2px #ff4b4b; }
+    50% { box-shadow: 0 0 8px #ff4b4b; }
+    100% { box-shadow: 0 0 2px #ff4b4b; }
+}
+
+div[data-baseweb="input"] input:focus {
+    animation: glowCaret 1s infinite;
+}
         }
     </style>
 """, unsafe_allow_html=True)
@@ -104,7 +118,7 @@ title_html = """
 st.markdown(title_html, unsafe_allow_html=True)
 
 # Sidebar 
-st.sidebar.markdown("## 📂 Filters")
+st.sidebar.markdown("##  Filters")
 bin_labels = [f"{int(b.left)} - {int(b.right)}" for b in df['Year Bin'].cat.categories]
 year_filter = st.sidebar.selectbox("🕒 Timeline", 
                                    ["All"] + bin_labels, 
@@ -136,7 +150,7 @@ if genre_filter != "All":
 #  query 
 query = st.text_input(
     label="🔍 Enter a movie description or theme",
-    placeholder="💡 Input your query to find your FAV MOVIE!",
+    placeholder=" Input your query to find your FAV MOVIE!",
     key="main_search_input"
 )
 
