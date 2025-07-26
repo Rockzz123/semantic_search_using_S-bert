@@ -27,6 +27,32 @@ index = faiss.read_index("movie_plot.index")
 # styles
 st.markdown("""
     <style>
+        /* Change sidebar label colors */
+        .stSelectbox label, .stTextInput label, .stSidebar .css-1aumxhk {
+            color: #ff4b4b !important; /* Bright red */
+            font-weight: bold;
+            text-shadow: 0 0 5px #ff4b4b;
+        }
+
+        /* Change main headers */
+        h1, h2, h3 {
+            color: #ff4b4b !important;
+        }
+
+        /* Optional: Input placeholders */
+        input::placeholder {
+            color: #ff4b4b !important;
+            text-shadow: 0 0 5px #ff4b4b;
+        }
+
+        /* Optional: General text */
+        .markdown-text-container {
+            color: #ffffff !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+st.markdown("""
+    <style>
         .stApp {
             background-image: url('https://c.tenor.com/9_NoAo1GeZsAAAAC/peaky-blinders.gif');
             background-size: cover;
