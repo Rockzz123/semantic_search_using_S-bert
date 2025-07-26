@@ -131,7 +131,7 @@ if query:
         st.subheader("🔎 Top Matching Movies")
         for res in results:
             with st.container():
-                st.markdown(f"### 🎮 {res['Title']} ({res['Year']})")
+                st.markdown(f"###  {res['Title']} ({res['Year']})")
                 st.markdown(f"**Genre:** {res['Genre']} | **Origin:** {res['Origin']}")
                 st.markdown(f"📝 {res['Plot']}")
                 st.markdown("---")
@@ -142,7 +142,7 @@ else:
     if not df_filtered.empty:
         for _, row in df_filtered.head(10).iterrows():
             with st.container():
-                st.markdown(f"### 🎮 {row['Title']} ({row['Release Year']})")
+                st.markdown(f"###  {row['Title']} ({row['Release Year']})")
                 st.markdown(f"**Genre:** {row['Genre']} | **Origin:** {row['Origin/Ethnicity']}")
                 st.markdown(f"📝 {row['Plot'][:500]}")
                 st.markdown("---")
