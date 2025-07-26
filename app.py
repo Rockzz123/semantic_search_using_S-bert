@@ -80,9 +80,20 @@ st.markdown(title_html, unsafe_allow_html=True)
 # Sidebar 
 st.sidebar.markdown("## 📂 Filters")
 bin_labels = [f"{int(b.left)} - {int(b.right)}" for b in df['Year Bin'].cat.categories]
-year_filter = st.sidebar.selectbox("Release Year Range", ["All"] + bin_labels)
-origin_filter = st.sidebar.selectbox("Origin/Ethnicity", ["All"] + sorted(df['Origin/Ethnicity'].unique()))
-genre_filter = st.sidebar.selectbox("Genre", ["All"] + sorted(df['Genre'].unique()))
+year_filter = st.sidebar.selectbox("🕒 <span style='color:#ff4b4b;'>Timeline</span>", 
+                                   ["All"] + bin_labels, 
+                                   format_func=lambda x: x, 
+                                   label_visibility="visible")
+
+origin_filter = st.sidebar.selectbox("🌍 <span style='color:#ff4b4b;'>Region / Ethnicity</span>", 
+                                     ["All"] + sorted(df['Origin/Ethnicity'].unique()),
+                                     format_func=lambda x: x, 
+                                     label_visibility="visible")
+
+genre_filter = st.sidebar.selectbox("🎭 <span style='color:#ff4b4b;'>Genre</span>", 
+                                    ["All"] + sorted(df['Genre'].unique()),
+                                    format_func=lambda x: x, 
+                                    label_visibility="visible")
 
 #  filters
 df_filtered = df.copy()
