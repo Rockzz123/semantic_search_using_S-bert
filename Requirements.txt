@@ -1,8 +1,8 @@
-Requirements  to run the project
-Import the following libraries to run locally
-->sentence-transformers
-->transformers
-->faiss-cpu
-->torch
-->streamlit
-->pandas
+streamlit==1.28.0
+pandas
+numpy
+faiss-cpu
+sentence-transformers
+torch
+transformers
+scikit-learn
