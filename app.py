@@ -4,7 +4,7 @@ import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
 
-# Set page 
+#page 
 st.set_page_config(page_title="Semantic Movie Search", layout="wide")
 
 # Load data
@@ -15,16 +15,16 @@ df['Origin/Ethnicity'] = df['Origin/Ethnicity'].fillna("Unknown")
 df['Release Year'] = pd.to_numeric(df['Release Year'], errors='coerce').astype('Int64')
 df = df.dropna(subset=['Release Year'])
 
-# 10-year bins for Release Year
+
 df['Year Bin'] = pd.cut(df['Release Year'], 
                         bins=list(range(int(df['Release Year'].min() // 10 * 10), 
                                        int(df['Release Year'].max() + 10), 10)))
 
-# Load model and index
+#loading model and indices
 model = SentenceTransformer("sbert-finetuned-movies")
 index = faiss.read_index("movie_plot.index")
 
-# styles
+# styling
 st.markdown("""
     <style>
         .stApp {
@@ -68,7 +68,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Main content
+# Main
 title_html = """
     <div class='block-container'>
         <h1 style='text-align: center;'>🎬 Semantic Search on Movie Plots</h1>
@@ -78,7 +78,7 @@ title_html = """
 st.markdown(title_html, unsafe_allow_html=True)
 
 # Sidebar 
-st.sidebar.markdown("## 📂 Filters")
+st.sidebar.markdown("##  Filters")
 bin_labels = [f"{int(b.left)} - {int(b.right)}" for b in df['Year Bin'].cat.categories]
 year_filter = st.sidebar.selectbox("Release Year Range", ["All"] + bin_labels)
 origin_filter = st.sidebar.selectbox("Origin/Ethnicity", ["All"] + sorted(df['Origin/Ethnicity'].unique()))
@@ -98,8 +98,8 @@ if genre_filter != "All":
 
 #  query 
 query = st.text_input(
-    label="🔍 Enter a movie description or theme",
-    placeholder="💡 Input your query to find your FAV MOVIE!",
+    label="Enter a movie description or theme",
+    placeholder=" Input your query to find your FAV MOVIE!",
     key="main_search_input"
 )
 
