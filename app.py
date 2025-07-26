@@ -106,17 +106,17 @@ st.markdown(title_html, unsafe_allow_html=True)
 # Sidebar 
 st.sidebar.markdown("## 📂 Filters")
 bin_labels = [f"{int(b.left)} - {int(b.right)}" for b in df['Year Bin'].cat.categories]
-year_filter = st.sidebar.selectbox("🕒 <span style='color:#ff4b4b;'>Timeline</span>", 
+year_filter = st.sidebar.selectbox("🕒 Timeline", 
                                    ["All"] + bin_labels, 
                                    format_func=lambda x: x, 
                                    label_visibility="visible")
 
-origin_filter = st.sidebar.selectbox("🌍 <span style='color:#ff4b4b;'>Region / Ethnicity</span>", 
+origin_filter = st.sidebar.selectbox("🌍 Region/Ethnicity", 
                                      ["All"] + sorted(df['Origin/Ethnicity'].unique()),
                                      format_func=lambda x: x, 
                                      label_visibility="visible")
 
-genre_filter = st.sidebar.selectbox("🎭 <span style='color:#ff4b4b;'>Genre</span>", 
+genre_filter = st.sidebar.selectbox("🎭 Genre", 
                                     ["All"] + sorted(df['Genre'].unique()),
                                     format_func=lambda x: x, 
                                     label_visibility="visible")
